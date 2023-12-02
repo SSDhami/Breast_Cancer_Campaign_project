@@ -45,11 +45,6 @@ df["diagnosis"]=LabelEncoder().fit_transform(df["diagnosis"].values)
 
 df = df.dropna(axis =1)
 
-#Normalization
-
-
-
-
 
 #Note:
 #You need to output the result of your pre-processing to an output CSV called “data_refined.csv”.
@@ -58,31 +53,31 @@ df.to_csv('data_refined.csv')
 
 #Visualization
 #You need to deliver a number of visualizations for your dataset including:
+
 #Pair Plots for the features.
 
-#sns.pairplot(data=df) #not working
-
+sns.pairplot(data=df, x_vars=df.columns)
+plt.show()
 
 #Correlation Matrix heat map.
-
-#sns.heatmap(df.corr()) #working
-
+plt.figure(figsize=(35,15))
+plt.xticks(fontsize=30)
+plt.yticks(fontsize=30)
+plt.tight_layout()
+sns.heatmap(df.corr())
 
 #Box plots for the features.
 
-
-#sns.boxplot(data=df) #working needs adjustment
-
-
+plt.figure(figsize=(35,30))
+plt.xticks(rotation=70,fontsize=15)
+plt.tight_layout()
+sns.boxplot(data=df)
 
 #Visualize your data in violin plots.
-
-#sns.violinplot(data = df) #working needs adjustment
-
-
-#Describe what a violin plot is.
-#Determine whether or not some of the features have outliers based on your violin plots.
-
+plt.figure(figsize=(35,15))
+plt.xticks(rotation=70,fontsize=30)
+plt.tight_layout()
+sns.violinplot(data = df,width =2) 
 
 df
 
